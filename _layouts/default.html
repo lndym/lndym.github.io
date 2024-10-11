@@ -126,6 +126,8 @@
         <button type="submit">Login</button>
       </form>
 
+      <button id="logout-button" style="display: none;">Logout</button>
+
       <footer class="site-footer">
         {% if site.github.is_project_page %}
           <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
@@ -195,17 +197,29 @@
       });
 
       // Status indicator
-    const statusIndicator = document.getElementById('status-indicator');
+      const statusIndicator = document.getElementById('status-indicator');
+          const logoutButton = document.getElementById('logout-button');
 
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            // User is signed in
-            statusIndicator.textContent = 'You are signed in as ' + user.email + '.';
-        } else {
-            // User is signed out
-            statusIndicator.textContent = 'You are not signed in.';
-        }
-    });
+          onAuthStateChanged(auth, (user) => {
+              if (user) {
+                  // User is signed in
+                  statusIndicator.textContent = 'You are signed in as ' + user.email + '.';
+                  logoutButton.style.display = 'block'; // Show logout button
+              } else {
+                  // User is signed out
+                  statusIndicator.textContent = 'You are not signed in.';
+                  logoutButton.style.display = 'none'; // Hide logout button
+              }
+          });
+
+          // Logout logic
+          logoutButton.addEventListener('click', () => {
+              signOut(auth).then(() => {
+                  alert('Logout successful!');
+              }).catch((error) => {
+                  alert('Error: ' + error.message);
+              });
+          });
     </script>
   </body>
 </html>
