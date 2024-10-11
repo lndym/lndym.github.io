@@ -14,21 +14,42 @@
 
      <!-- Custom Styling -->
      <style>
-      /* General form container styling */
-      form {
+      /* Style the body and main container to center vertically */
+      body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+    
+      /* Style the main content to stack everything vertically */
+      main {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 20px auto;
         padding: 20px;
+        text-align: center;
         max-width: 400px;
+        width: 100%;
+      }
+    
+      /* Form container styles for sign-up and login */
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 20px 0;
+        padding: 20px;
         background-color: #f9f9f9;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
-
-      /* Styling for input fields */
+    
+      /* Input field styles */
       input[type="email"],
       input[type="password"] {
         width: 100%;
@@ -38,8 +59,8 @@
         border-radius: 4px;
         font-size: 16px;
       }
-
-      /* Styling for buttons */
+    
+      /* Button styles */
       button {
         width: 100%;
         padding: 12px;
@@ -52,32 +73,12 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
       }
-
+    
       button:hover {
         background-color: #45a049;
       }
-
-      /* Styling for the page body */
-      body {
-        font-family: 'Open Sans', sans-serif;
-        background-color: #f0f0f0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-      }
-
-      /* Style the main content container to center it on the page */
-      main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        text-align: center;
-      }
-
+    
+      /* Ensure the headers also stack and are centered */
       h1, h2 {
         margin-bottom: 20px;
       }
